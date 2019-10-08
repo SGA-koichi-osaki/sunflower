@@ -2,6 +2,7 @@ inspecode:
   fossology: default
   grep: default
   misspell: default
-  detekt: default
+  detekt:
+    num-issues: 50
   jscpd: default
   ktlint: default
