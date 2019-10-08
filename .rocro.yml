@@ -3,6 +3,7 @@ inspecode:
   grep: default
   misspell: default
   detekt:
-    num-issues: 50
+    thresholds:
+      num-issues: 50
   jscpd: default
   ktlint: default
