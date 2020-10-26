@@ -32,10 +32,25 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
+      - persist_to_workspace:
+          root: .
+          paths:
+            - "app/build/outputs"
+  test:
+    machine: true
+    resource_class: sga-koichi-osaki/trial-runner
+    steps:
+      - attach_workspace
+          at: .
+      - run: du -h app/build/outputs
 
 workflows:
   version: 2
   sunflower:
     jobs:
       - build
+      - test:
+          requires
+            - build
+            
       
